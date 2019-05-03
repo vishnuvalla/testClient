@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql      = require('mysql');
 // https://github.com/mysqljs/mysql
-const connection = mysql.createConnection({
+const con = mysql.createConnection({
   host     : 'localhost',
   user     : 'admin',
   password : 'DeepRisk&&',
