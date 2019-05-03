@@ -14,15 +14,16 @@ const app = express();
 
 // https://expressjs.com/en/guide/routing.html
 app.get('/predictions', function (req, res) {
-    connection.connect();
-
-    connection.query('SELECT * FROM test_predictions LIMIT 10;', function (error, results, fields) {
-      if (error) throw error;
+  con.connect(function(err) {
+    if (err) throw err;
+    //Select all customers and return the result object:
+    con.query("SELECT * FROM customers", function (err, result, fields) {
+      if (err) throw err;
       console.log(result);
-      res.send(results)
+      res.send(result);
     });
-
-    connection.end();
+  });
+  
 });
 // Start the server
 app.listen(3000, () => {
