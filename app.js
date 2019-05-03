@@ -17,7 +17,7 @@ app.get('/predictions', function (req, res) {
   con.connect(function(err) {
     if (err) throw err;
     //Select all customers and return the result object:
-    con.query("SELECT * FROM customers", function (err, result, fields) {
+    con.query("SELECT * FROM test_predictions LIMIT 10;", function (err, result, fields) {
       if (err) throw err;
       console.log(result);
       res.send(result);
